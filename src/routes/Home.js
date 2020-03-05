@@ -8,8 +8,8 @@ const GET_MOVIES = gql `
   {
     movies {
       id
-      title
       medium_cover_image
+      isLiked @client
     }
   }
 `;
@@ -47,6 +47,15 @@ const Loading = styled.div `
   margin-top: 10px;
 `;
 
+const Movies = styled.div `
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  width: 60%;
+  position: relative;
+  top: -50px;
+`;
+
 export default() => {
     const {loading, data} = useQuery(GET_MOVIES);
     return (
@@ -55,10 +64,12 @@ export default() => {
                 <Title>Apollo 2020</Title>
                 <Subtitle>GraphQL is.....</Subtitle>
             </Header>
-            {loading && <Loading>Loading...ing...</Loading>}
-            {!loading && data.movies && data
-                .movies
-                .map(m => <Movie key={m.id} id={m.id}/>)}
+            {loading && <Loading>Loading...</Loading>}
+            <Movies>
+                {data
+                    ?.movies
+                        ?.map(m => (<Movie key={m.id} id={m.id} isLiked={m.isLiked} bg={m.medium_cover_image}/>))}
+            </Movies>
         </Container>
     );
 };

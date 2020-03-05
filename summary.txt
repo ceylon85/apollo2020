@@ -6,7 +6,8 @@ styled components
 
 react-router-dom
 
-react apollo
+react-apollo 는 처음에 request를 하며 cache를 저장하기 때문에 같은 page 다시 방문했을 시 저장된 cache에서 찾으며 request를 다시 보내지 않는다.(loading 없이 이동이 가능하다.)
 
 reset css
 - 코드 복사 후 ../public/reset.css 파일로 저장
+
