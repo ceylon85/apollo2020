@@ -1,9 +1,12 @@
+Terminal 설치 명령어
+yarn add styled-components react-router-dom apollo-boost @apollo/react-hooks graphql
+
+
 styled components
-
-
 
 react-router-dom
 
-
-
 react apollo
+
+reset css
+- 코드 복사 후 ../public/reset.css 파일로 저장
