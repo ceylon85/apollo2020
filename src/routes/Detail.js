@@ -6,7 +6,8 @@ import styled from "styled-components";
 
 const GET_MOVIE = gql`
   query getMovie($id: Int!) {
-    movie(id: $id) {
+    movies(id: $id) {
+      id
       title
       medium_cover_image
       language
@@ -56,13 +57,13 @@ export default () => {
   return (
     <Container>
       <Column>
-        <Title>{loading ? "Loading..." : data?.movie?.title}타이틀</Title>
+        <Title>{loading ? "Loading..." : data?.movies?.title}타이틀</Title>
         <Subtitle>
-          {data?.movie.language}언어 · {data?.movie?.rating} 평점
+        평점
         </Subtitle>
-        <Description>{data?.movies?.description_intro} 설명</Description>
+        <Description>{data?.movie?.description_intro}설명</Description>
       </Column>
-      <Poster bg={data?.movie?.medium_cover_image}> 포스터</Poster>
+      <Poster> 포스터</Poster>
     </Container>
   );
 };
